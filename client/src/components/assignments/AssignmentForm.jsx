@@ -1,96 +1,66 @@
 "use client"
 
 import { useState } from "react"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
-import { Textarea } from "../ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
-import { Loader2, PlusCircle } from "lucide-react"
-import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button" // shadcn/ui Button
+import { Input } from "@/components/ui/input" // shadcn/ui Input
+import { Label } from "@/components/ui/label" // shadcn/ui Label
+import { Textarea } from "@/components/ui/textarea" // shadcn/ui Textarea
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card" // shadcn/ui Card
+import { Loader2 } from "lucide-react" // For loading spinner inside button
 
-export default function AssignmentForm({ onSubmit, loading }) {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
-  const [deadline, setDeadline] = useState("") // YYYY-MM-DDTHH:MM format for datetime-local
+export default function SubmissionForm({ onSubmit, loading }) {
+  const [submissionUrl, setSubmissionUrl] = useState("")
+  const [note, setNote] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit({ title, description, deadline })
-  }
-
-  const buttonVariants = {
-    hover: { scale: 1.02, boxShadow: "0px 8px 20px rgba(139, 92, 246, 0.6)" },
-    tap: { scale: 0.98 },
+    onSubmit({ submissionUrl, note })
   }
 
   return (
-    <Card className="w-full max-w-2xl mx-auto bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-xl shadow-2xl border border-purple-700 backdrop-blur-sm bg-opacity-80">
-      <CardHeader className="pb-4">
-        <CardTitle className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-md">
-          Assignment Details
+    <Card className="w-full max-w-2xl mx-auto bg-gray-800/70 text-white shadow-2xl border border-gray-700 backdrop-blur-sm">
+      <CardHeader>
+        <CardTitle className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+          Submit Your Work
         </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="title" className="text-lg font-semibold text-gray-200">
-              Title
+            <Label htmlFor="submissionUrl" className="text-lg font-semibold text-gray-200 mb-2 block">
+              Submission URL
             </Label>
             <Input
-              id="title"
-              type="text"
-              placeholder="e.g., Introduction to React"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              id="submissionUrl"
+              type="url"
+              placeholder="e.g., https://github.com/your-repo"
+              value={submissionUrl}
+              onChange={(e) => setSubmissionUrl(e.target.value)}
               required
-              className="mt-2 p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white placeholder-gray-400 transition-all duration-200 shadow-inner"
+              className="p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-700 text-white placeholder:text-gray-400 transition-colors duration-200"
             />
           </div>
           <div>
-            <Label htmlFor="description" className="text-lg font-semibold text-gray-200">
-              Description
+            <Label htmlFor="note" className="text-lg font-semibold text-gray-200 mb-2 block">
+              Notes (Optional)
             </Label>
             <Textarea
-              id="description"
-              placeholder="Provide a detailed description of the assignment requirements."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              rows="6"
-              required
-              className="mt-2 p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white placeholder-gray-400 transition-all duration-200 shadow-inner"
+              id="note"
+              placeholder="Any additional notes for the instructor..."
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              rows="5"
+              className="p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-gray-700 text-white placeholder:text-gray-400 transition-colors duration-200 resize-y"
             />
           </div>
-          <div>
-            <Label htmlFor="deadline" className="text-lg font-semibold text-gray-200">
-              Deadline
-            </Label>
-            <Input
-              id="deadline"
-              type="datetime-local"
-              value={deadline}
-              onChange={(e) => setDeadline(e.target.value)}
-              required
-              className="mt-2 p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-gray-700 text-white placeholder-gray-400 transition-all duration-200 shadow-inner"
-            />
-          </div>
-          <motion.div whileHover="hover" whileTap="tap" variants={buttonVariants}>
-            <Button
-              type="submit"
-              className="w-full py-3 text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-700 text-white rounded-lg shadow-lg hover:from-purple-700 hover:to-indigo-800 transition-all duration-300 flex items-center justify-center gap-2"
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <Loader2 className="h-5 w-5 animate-spin" /> Creating...
-                </>
-              ) : (
-                <>
-                  Create Assignment <PlusCircle className="h-5 w-5" />
-                </>
-              )}
-            </Button>
-          </motion.div>
+          <Button
+            type="submit"
+            className="w-full py-3 text-lg font-bold bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white transition-all duration-300 rounded-lg shadow-md flex items-center justify-center gap-2"
+            disabled={loading}
+          >
+            {loading && <Loader2 className="mr-2 h-5 w-5 animate-spin" />}
+            {loading ? "Submitting..." : "Submit Assignment"}
+          </Button>
         </form>
       </CardContent>
     </Card>

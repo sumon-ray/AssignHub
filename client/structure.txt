@@ -1,0 +1,132 @@
+src\app 
+Folder PATH listing for volume New Volume
+Volume serial number is 86EB-AE03
+F:\MY-PROJECT-FOLDER\JOB-TASKS\ASSIGNHUB\CLIENT\SRC\APP
+|   favicon.ico
+|   globals.css
+|   layout.jsx
+|   page.jsx
+|   
++---dashboard
+|   |   layout.jsx
+|   |   page.jsx
+|   |   
+|   +---analytics
+|   |       page.jsx
+|   |       
+|   +---assignments
+|   |   |   page.jsx
+|   |   |   
+|   |   +---create
+|   |   |       page.jsx
+|   |   |       
+|   |   \---[id]
+|   |       +---submissions
+|   |       |       page.jsx
+|   |       |       
+|   |       \---submit
+|   |               page.jsx
+|   |               
+|   \---submissions
+|       |   page.jsx
+|       |   
+|       \---[id]
+|               page.jsx
+|               
++---login
+|       page.jsx
+|       
+\---register
+        page.jsx
+        
+ 
+src\components 
+Folder PATH listing for volume New Volume
+Volume serial number is 86EB-AE03
+F:\MY-PROJECT-FOLDER\JOB-TASKS\ASSIGNHUB\CLIENT\SRC\COMPONENTS
+|   assignment-network-3d.jsx
+|   theme-provider.tsx
+|   
++---analytics
+|       SubmissionPieChart.jsx
+|       
++---assignments
+|       AssignmentCard.jsx
+|       AssignmentForm.jsx
+|       SubmissionForm.jsx
+|       
++---common
+|       AuthForm.jsx
+|       Footer.jsx
+|       LoadingSpinner.jsx
+|       Navbar.jsx
+|       ProtectedRoute.jsx
+|       
++---home
+|       FeaturesSection.jsx
+|       HeroSection.jsx
+|       
++---submissions
+|       SubmissionCard.jsx
+|       SubmissionReview.jsx
+|       
+\---ui
+        accordion.tsx
+        alert-dialog.tsx
+        alert.tsx
+        aspect-ratio.tsx
+        avatar.tsx
+        badge.tsx
+        breadcrumb.tsx
+        button.tsx
+        calendar.tsx
+        card.tsx
+        carousel.tsx
+        chart.tsx
+        checkbox.tsx
+        collapsible.tsx
+        command.tsx
+        context-menu.tsx
+        dialog.tsx
+        drawer.tsx
+        dropdown-menu.tsx
+        form.tsx
+        hover-card.tsx
+        input-otp.tsx
+        input.tsx
+        label.tsx
+        menubar.tsx
+        navigation-menu.tsx
+        pagination.tsx
+        popover.tsx
+        progress.tsx
+        radio-group.tsx
+        resizable.tsx
+        scroll-area.tsx
+        select.tsx
+        separator.tsx
+        sheet.tsx
+        sidebar.tsx
+        skeleton.tsx
+        slider.tsx
+        sonner.tsx
+        switch.tsx
+        table.tsx
+        tabs.tsx
+        textarea.tsx
+        toast.tsx
+        toaster.tsx
+        toggle-group.tsx
+        toggle.tsx
+        tooltip.tsx
+        use-mobile.tsx
+        use-toast.ts
+        
+ 
+src\services 
+Folder PATH listing for volume New Volume
+Volume serial number is 86EB-AE03
+F:\MY-PROJECT-FOLDER\JOB-TASKS\ASSIGNHUB\CLIENT\SRC\SERVICES
+Invalid path - \MY-PROJECT-FOLDER\JOB-TASKS\ASSIGNHUB\CLIENT\SRC\SERVICES
+No subfolders exist 
+
