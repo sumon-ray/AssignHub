@@ -4,8 +4,9 @@
   "description": "Backend for Assignment Submission Portal",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node index.js",
+    "vercel-build": "echo 'No build needed'",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",

@@ -3,7 +3,8 @@ const {
   getMySubmissions,
   updateSubmissionStatus,
   getSubmissionStatusCounts,
-  submitAssignment,
+  getSubmissionById,
+  submitAssignment, // Import the new function
 } = require("../controllers/submissionController")
 const { protect, authorizeRoles } = require("../middleware/authMiddleware")
 
@@ -16,4 +17,8 @@ router.get("/me", protect, authorizeRoles("student"), getMySubmissions)
 // Instructor routes
 router.put("/:id", protect, authorizeRoles("instructor"), updateSubmissionStatus)
 router.get("/status-counts", protect, authorizeRoles("instructor"), getSubmissionStatusCounts)
+
+// General submission view (accessible by student for their own, instructor for their assignments)
+router.get("/:id", protect, getSubmissionById) // New route
+
 module.exports = router
