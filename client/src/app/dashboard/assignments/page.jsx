@@ -61,7 +61,7 @@ export default function AssignmentsPage() {
   return (
     <div className="p-4">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold mx-auto text-center bg-clip-text text-white drop-shadow-lg">
           Assignments
         </h1>
         {user && user.role === USER_ROLES.INSTRUCTOR && (

@@ -69,7 +69,7 @@ export default function SubmissionsPage() {
 
   return (
     <div className="p-4">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-lg mb-8 text-center">
+      <h1 className="text-4xl md:text-5xl font-extrabold  drop-shadow-lg mb-8 text-center">
         {user.role === USER_ROLES.STUDENT ? "My Submissions" : "Submissions Overview (Instructor)"}
       </h1>
 

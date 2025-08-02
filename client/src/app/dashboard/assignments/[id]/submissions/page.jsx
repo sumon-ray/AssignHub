@@ -70,7 +70,7 @@ export default function AssignmentSubmissionsPage() {
   return (
     <ProtectedRoute allowedRoles={[USER_ROLES.INSTRUCTOR]}>
       <div className="p-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-lg mb-4 text-center">
+        <h1 className="text-3xl md:text-5xl font-extrabold drop-shadow-lg mb-4 text-center">
           Submissions for: {assignment.title}
         </h1>
         <p className="text-center text-gray-400 mb-8 text-lg">{assignment.description}</p>

@@ -5,7 +5,7 @@ import AuthForm from "../../components/common/AuthForm.jsx"
 import { useAuth } from "../../context/AuthContext"
 import Link from "next/link"
 import Navbar from "../../components/common/Navbar.jsx"
-import Footer from "../../components/common/Footer.jsx"
+// import Footer from "../../components/common/Footer.jsx"
 
 export default function RegisterPage() {
   const { register } = useAuth()
@@ -36,7 +36,7 @@ export default function RegisterPage() {
           </p>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

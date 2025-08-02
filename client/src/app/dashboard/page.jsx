@@ -63,7 +63,7 @@ export default function AssignmentsPage() {
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row justify-between items-center mb-10 gap-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-lg">
+          <h1 className="text-4xl text-left  font-extrabold ">
             Assignments
           </h1>
           {user && user.role === USER_ROLES.INSTRUCTOR && (
@@ -135,7 +135,6 @@ export default function AssignmentsPage() {
           >
             {assignments.map((assignment) => (
               <motion.div key={assignment._id} variants={itemVariants}>
-                {/* AssignmentCard is assumed to be styled internally to fit the aesthetic */}
                 <AssignmentCard assignment={assignment} userRole={user?.role} />
               </motion.div>
             ))}

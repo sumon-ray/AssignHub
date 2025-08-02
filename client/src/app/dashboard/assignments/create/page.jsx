@@ -40,9 +40,9 @@ export default function CreateAssignmentPage() {
   return (
     <ProtectedRoute allowedRoles={[USER_ROLES.INSTRUCTOR]}>
       <div className="p-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-lg mb-8 text-center">
+        {/* <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-lg mb-8 text-center">
           Create New Assignment
-        </h1>
+        </h1> */}
         {error && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}

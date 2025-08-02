@@ -1,31 +1,51 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "../ui/button"
-import { Label } from "../ui/label"
-import { Textarea } from "../ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../ui/card"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
-import { SUBMISSION_STATUSES } from "../../lib/constants.js"
-import { format } from "date-fns"
+import { format } from "date-fns";
+import { useState } from "react";
+import { SUBMISSION_STATUSES } from "../../lib/constants.js";
+import { Button } from "../ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import { Label } from "../ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Textarea } from "../ui/textarea";
 
 export default function SubmissionReview({ submission, onSubmit, loading }) {
-  const [status, setStatus] = useState(submission.status)
-  const [feedback, setFeedback] = useState(submission.feedback || "")
+  const [status, setStatus] = useState(submission.status);
+  const [feedback, setFeedback] = useState(submission.feedback || "");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    onSubmit({ status, feedback })
-  }
+    e.preventDefault();
+    onSubmit({ status, feedback });
+  };
 
   return (
     <Card className="w-full max-w-2xl mx-auto bg-gray-800 text-white shadow-lg border-purple-500 border-opacity-30">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-purple-400">Review Submission</CardTitle>
+        <CardTitle className="  text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+          Review Submission
+        </CardTitle>
         <CardDescription className="text-gray-400">
-          Assignment: <span className="font-medium">{submission.assignment ? submission.assignment.title : "N/A"}</span>
+          Assignment:{" "}
+          <span className="font-medium">
+            {submission.assignment ? submission.assignment.title : "N/A"}
+          </span>
           <br />
-          Student: <span className="font-medium">{submission.student ? submission.student.email : "N/A"}</span>
+          Student:{" "}
+          <span className="font-medium">
+            {submission.student ? submission.student.email : "N/A"}
+          </span>
           <br />
           Submitted on: {format(new Date(submission.createdAt), "PPP p")}
         </CardDescription>
@@ -45,13 +65,18 @@ export default function SubmissionReview({ submission, onSubmit, loading }) {
         {submission.note && (
           <div className="mb-6 space-y-2">
             <p className="font-semibold text-gray-300">Student Note:</p>
-            <p className="text-gray-400 italic p-3 bg-gray-700 rounded-lg">{submission.note}</p>
+            <p className="text-gray-400 italic p-3 bg-gray-700 rounded-lg">
+              {submission.note}
+            </p>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="status" className="text-lg font-semibold text-gray-300">
+            <Label
+              htmlFor="status"
+              className="text-lg font-semibold text-gray-300"
+            >
               Update Status
             </Label>
             <Select value={status} onValueChange={setStatus}>
@@ -59,14 +84,23 @@ export default function SubmissionReview({ submission, onSubmit, loading }) {
                 <SelectValue placeholder="Select status" />
               </SelectTrigger>
               <SelectContent className="bg-gray-800 text-white border border-gray-600">
-                <SelectItem value={SUBMISSION_STATUSES.PENDING}>Pending</SelectItem>
-                <SelectItem value={SUBMISSION_STATUSES.ACCEPTED}>Accepted</SelectItem>
-                <SelectItem value={SUBMISSION_STATUSES.REJECTED}>Rejected</SelectItem>
+                <SelectItem value={SUBMISSION_STATUSES.PENDING}>
+                  Pending
+                </SelectItem>
+                <SelectItem value={SUBMISSION_STATUSES.ACCEPTED}>
+                  Accepted
+                </SelectItem>
+                <SelectItem value={SUBMISSION_STATUSES.REJECTED}>
+                  Rejected
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div>
-            <Label htmlFor="feedback" className="text-lg font-semibold text-gray-300">
+            <Label
+              htmlFor="feedback"
+              className="text-lg font-semibold text-gray-300"
+            >
               Feedback
             </Label>
             <Textarea
@@ -80,7 +114,7 @@ export default function SubmissionReview({ submission, onSubmit, loading }) {
           </div>
           <Button
             type="submit"
-            className="w-full py-3 text-lg font-bold bg-purple-600 hover:bg-purple-700 transition-colors duration-300 rounded-lg"
+            className="mx-auto text-center flex flex-col"
             disabled={loading}
           >
             {loading ? "Updating..." : "Update Submission"}
@@ -88,5 +122,5 @@ export default function SubmissionReview({ submission, onSubmit, loading }) {
         </form>
       </CardContent>
     </Card>
-  )
+  );
 }

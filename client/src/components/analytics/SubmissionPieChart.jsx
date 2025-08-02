@@ -19,7 +19,7 @@ export default function SubmissionPieChart({ data }) {
   return (
     <Card className="w-full max-w-xl mx-auto bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-xl shadow-2xl border border-purple-700 backdrop-blur-sm bg-opacity-80">
       <CardHeader className="pb-4">
-        <CardTitle className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-md">
+        <CardTitle className="text-3xl font-bold text-transparent  bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-md">
           Submission Status Overview
         </CardTitle>
       </CardHeader>

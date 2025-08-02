@@ -164,9 +164,7 @@ export default function SubmitAssignmentPage() {
               Redirecting...
             </motion.div>
           )}
-          {/* Two-Column Layout for Assignment Details and Submission Form */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column: Assignment Details Card */}
             <motion.div
               variants={cardVariants}
               initial="hidden"
@@ -174,12 +172,15 @@ export default function SubmitAssignmentPage() {
               className="w-full bg-gray-800/70 text-white rounded-xl shadow-2xl border border-gray-700 backdrop-blur-sm relative overflow-hidden"
             >
               <Card className="bg-transparent border-none shadow-none p-6">
+                <h1 className="text-3xl mx-auto text-center font-bold">
+                  Work Details
+                </h1>
                 <CardHeader className="pb-4">
                   <CardTitle className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
                     {assignment.title}
                   </CardTitle>
                   <CardDescription className="text-gray-400 flex items-center gap-2">
-                    <Calendar className="h-5 w-5 text-purple-300" />
+                    <Calendar className="h-5 w-5 " />
                     <span className="font-medium">
                       Due: {format(new Date(assignment.deadline), "PPP p")}
                     </span>
@@ -187,7 +188,7 @@ export default function SubmitAssignmentPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start gap-3 text-gray-300">
-                    <BookOpen className="h-6 w-6 text-purple-300 flex-shrink-0 mt-1" />
+                    <BookOpen className="h-6 w-6  flex-shrink-0 mt-1" />
                     <p className="text-lg leading-relaxed">
                       {assignment.description}
                     </p>

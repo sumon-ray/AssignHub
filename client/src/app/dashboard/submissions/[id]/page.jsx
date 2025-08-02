@@ -22,7 +22,6 @@ export default function ReviewSubmissionPage() {
     const fetchSubmission = async () => {
       try {
         setLoading(true)
-        // Fetch submission details, including populated assignment and student
         const data = await api(`/submissions/${id}`) // Assuming backend has an endpoint for single submission by ID
         setSubmission(data)
       } catch (err) {
@@ -81,7 +80,7 @@ export default function ReviewSubmissionPage() {
     <ProtectedRoute allowedRoles={[USER_ROLES.INSTRUCTOR]}>
       <div className="p-4">
         <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 drop-shadow-lg mb-8 text-center">
-          Review Submission
+          {/* Review Submission */}
         </h1>
         {error && (
           <motion.div

@@ -1,30 +1,35 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "../ui/button"
-import { Input } from "../ui/input"
-import { Label } from "../ui/label"
-import { Textarea } from "../ui/textarea"
-import { Card, CardContent, CardHeader, CardTitle } from "../ui/card"
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
+import { Textarea } from "../ui/textarea";
 
 export default function SubmissionForm({ onSubmit, loading }) {
-  const [submissionUrl, setSubmissionUrl] = useState("")
-  const [note, setNote] = useState("")
+  const [submissionUrl, setSubmissionUrl] = useState("");
+  const [note, setNote] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    onSubmit({ submissionUrl, note })
-  }
+    e.preventDefault();
+    onSubmit({ submissionUrl, note });
+  };
 
   return (
     <Card className="w-full max-w-xl mx-auto bg-gray-800 text-white shadow-lg border-purple-500 border-opacity-30">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-purple-400">Submit Your Work</CardTitle>
+        <CardTitle className="text-3xl font-bold ">
+          Submit Your Work
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <Label htmlFor="submissionUrl" className="text-lg font-semibold text-gray-300">
+            <Label
+              htmlFor="submissionUrl"
+              className="text-lg font-semibold text-gray-300"
+            >
               Submission URL
             </Label>
             <Input
@@ -38,7 +43,10 @@ export default function SubmissionForm({ onSubmit, loading }) {
             />
           </div>
           <div>
-            <Label htmlFor="note" className="text-lg font-semibold text-gray-300">
+            <Label
+              htmlFor="note"
+              className="text-lg font-semibold text-gray-300"
+            >
               Notes (Optional)
             </Label>
             <Textarea
@@ -52,7 +60,7 @@ export default function SubmissionForm({ onSubmit, loading }) {
           </div>
           <Button
             type="submit"
-            className="w-full py-3 text-lg font-bold bg-purple-600 hover:bg-purple-700 transition-colors duration-300 rounded-lg"
+            className="w-full py-3 text-lg font-bold "
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit Assignment"}
@@ -60,5 +68,5 @@ export default function SubmissionForm({ onSubmit, loading }) {
         </form>
       </CardContent>
     </Card>
-  )
+  );
 }

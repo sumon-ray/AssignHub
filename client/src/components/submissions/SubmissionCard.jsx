@@ -43,14 +43,14 @@ export default function SubmissionCard({ submission, userRole }) {
   return (
     <Card className="bg-gray-800 text-white shadow-xl hover:shadow-2xl transition-all duration-300 border border-purple-700 hover:border-purple-500 transform hover:-translate-y-1">
       <CardHeader className="pb-4">
-        <CardTitle className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2">
+        <CardTitle className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 hover:from-blue-300  mb-2">
           {submission.assignment
             ? submission.assignment.title
             : "Unknown Assignment"}
         </CardTitle>
         <CardDescription className="text-gray-400 flex items-center gap-2">
-          <User className="h-4 w-4 text-purple-300" />
-          <span className="font-medium">
+          <User className="h-4 w-4 " />
+          <span className="font-medium ">
             Submitted by:{" "}
             {submission.student ? submission.student.email : "Unknown Student"}
           </span>
@@ -71,14 +71,17 @@ export default function SubmissionCard({ submission, userRole }) {
               {statusText}
             </Badge>
           </div>
-          <a
-            href={submission.submissionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-400 hover:underline flex items-center gap-1 transition-colors hover:text-purple-300"
-          >
-            View Submission <ExternalLink className="h-4 w-4" />
-          </a>
+
+          <Button>
+            <a
+              href={submission.submissionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline   from-blue-400 to-purple-600  flex items-center gap-1  hover:text-purple-300"
+            >
+              View Submission <ExternalLink className="h-4 w-4" />
+            </a>
+          </Button>
         </div>
         {submission.note && (
           <div className="bg-gray-700 p-4 rounded-lg shadow-inner border border-gray-600">
@@ -105,7 +108,7 @@ export default function SubmissionCard({ submission, userRole }) {
         {isInstructor && (
           <div className="flex justify-end pt-4">
             <Link href={`/dashboard/submissions/${submission._id}`}>
-              <Button className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 hover:from-purple-700 hover:to-indigo-800 text-lg px-6 py-3 shadow-md hover:shadow-lg transition-all duration-300">
+              <Button className="    px-6 py-3 shadow-md hover:shadow-lg transition-all duration-300">
                 Review Submission
               </Button>
             </Link>

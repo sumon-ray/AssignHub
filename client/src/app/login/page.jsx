@@ -5,7 +5,7 @@ import AuthForm from "../../components/common/AuthForm.jsx"
 import { useAuth } from "../../context/AuthContext"
 import Link from "next/link"
 import Navbar from "../../components/common/Navbar.jsx"
-import Footer from "../../components/common/Footer.jsx"
+// import Footer from "../../components/common/Footer.jsx"
 
 export default function LoginPage() {
   const { login } = useAuth()
@@ -20,7 +20,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white">
+    <div className="min-h-screen flex flex-col bg-gray-950  text-white">
       <Navbar />
       <main className="flex-grow flex items-center justify-center p-4">
         <div className="w-full max-w-md">
@@ -36,7 +36,7 @@ export default function LoginPage() {
           </p>
         </div>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
